@@ -23073,7 +23073,8 @@ CREATE TABLE `consultorio`.`profesional` (
   `nombre` VARCHAR(45) NOT NULL,
   `dni` INT(8) NOT NULL,
   `id_domicilio` INT(11) NOT NULL,
-  `id_especialidad` INT(11) NOT NULL)
+  `id_especialidad` INT(11) NOT NULL,
+   PRIMARY KEY (`id_profesional`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_spanish_ci;
@@ -23129,8 +23130,7 @@ CREATE TABLE `consultorio`.`domicilio` (
   `id_cp` SMALLINT(6) NOT NULL,
   `id_localidad` INT(10) UNSIGNED NOT NULL,
   `id_provincia` TINYINT(3) UNSIGNED NOT NULL,
-  PRIMARY KEY (`id_domicilio`)
-)
+  PRIMARY KEY (`id_domicilio`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_spanish_ci;
@@ -23176,16 +23176,6 @@ ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_spanish_ci;
 
-#--- Modificación de Tabla - profesional
-ALTER TABLE `consultorio`.`profesional` 
-ADD INDEX `profesional-consulta_idx` (`id_profesional` ASC);
-ALTER TABLE `consultorio`.`profesional` 
-ADD CONSTRAINT `profesional-consulta`
-  FOREIGN KEY (`id_profesional`)
-  REFERENCES `consultorio`.`consulta` (`id_consulta`)
-  ON DELETE NO ACTION
-  ON UPDATE NO ACTION;
-
 #--- Modificación de Tabla - profesional_obsocial
 ALTER TABLE `consultorio`.`profesional_obsocial` 
 ADD INDEX `fk_profesional_has_obra_social_obra_social1_idx` (`id_obsoc` ASC),
@@ -23202,26 +23192,13 @@ ADD CONSTRAINT `fk_profesional_has_obra_social_obra_social1`
     ON DELETE NO ACTION
     ON UPDATE NO ACTION;
 
+
+
 #--- Modificación de Tabla - Domicilio
 ALTER TABLE `consultorio`.`domicilio`
 ADD INDEX `domicilio-localidad_idx` (`id_localidad` ASC),
 ADD INDEX `domicilio-provincia_idx` (`id_provincia` ASC);
 ALTER TABLE `consultorio`.`domicilio`
-  ADD CONSTRAINT `domicilio-paciente`
-    FOREIGN KEY (`id_domicilio`)
-    REFERENCES `consultorio`.`paciente` (`id_paciente`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  ADD CONSTRAINT `domicilio-usuario`
-    FOREIGN KEY (`id_domicilio`)
-    REFERENCES `consultorio`.`usuario` (`id_usuario`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  ADD CONSTRAINT `domicilio-profesional`
-    FOREIGN KEY (`id_domicilio`)
-    REFERENCES `consultorio`.`profesional` (`id_profesional`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
   ADD CONSTRAINT `domicilio-localidad`
     FOREIGN KEY (`id_localidad`)
     REFERENCES `consultorio`.`localidad` (`id_localidad`)
@@ -23233,28 +23210,33 @@ ALTER TABLE `consultorio`.`domicilio`
     ON DELETE NO ACTION
     ON UPDATE NO ACTION;
     
-#--- Modficación de Tabla - Paciente
-ALTER TABLE `consultorio`.`paciente`
-  ADD INDEX `paciente-obrasocial_idx` (`id_obsoc`);
-ALTER TABLE `consultorio`.`paciente`  
-  ADD CONSTRAINT `paciente-consulta`
-    FOREIGN KEY (`id_paciente`)
-    REFERENCES `consultorio`.`consulta` (`id_consulta`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  ADD CONSTRAINT `paciente-obrasocial`
-    FOREIGN KEY (`id_obsoc`)
-    REFERENCES `consultorio`.`obra_social` (`id_obsoc`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION;    
-    
-#--- Modificación de Tabla - Tipo de consulta
-ALTER TABLE `consultorio`.`tipo_consulta`
-ADD CONSTRAINT `tipo-consulta`
-    FOREIGN KEY (`id_tconsulta`)
-    REFERENCES `consultorio`.`consulta` (`id_consulta`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION;
+#--- Modficación de Tabla - Consulta
+ALTER TABLE `consultorio`.`consulta` 
+ADD INDEX `consulta-paciente_idx` (`id_paciente`),
+ADD INDEX `consulta-profesional_idx` (`id_profesional`),
+ADD INDEX `consulta-usuario_idx` (`id_usuario`),
+ADD INDEX `consulta-tconsulta_idx` (`id_tconsulta`) ;
+ALTER TABLE `consultorio`.`consulta` 
+ADD CONSTRAINT `consulta-paciente`
+  FOREIGN KEY (`id_paciente`)
+  REFERENCES `consultorio`.`paciente` (`id_paciente`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION,
+ADD CONSTRAINT `consulta-profesional`
+  FOREIGN KEY (`id_profesional`)
+  REFERENCES `consultorio`.`profesional` (`id_profesional`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION,
+ADD CONSTRAINT `consulta-usuario`
+  FOREIGN KEY (`id_usuario`)
+  REFERENCES `consultorio`.`usuario` (`id_usuario`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION,
+ADD CONSTRAINT `consulta-tconsulta`
+  FOREIGN KEY (`id_tconsulta`)
+  REFERENCES `consultorio`.`tipo_consulta` (`id_tconsulta`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
 
 #--- Modificación de Tabla - Libreta de contacto
 ALTER TABLE `consultorio`.`libreta_contacto`
@@ -23282,11 +23264,45 @@ ALTER TABLE `consultorio`.`periodo_no_laboral`
     ON DELETE NO ACTION
     ON UPDATE NO ACTION;
 
-#--- Modificación de Tabla - Usuario    
-ALTER TABLE `consultorio`.`usuario` 
-ADD CONSTRAINT `usurio-consulta`
-  FOREIGN KEY (`id_usuario`)
-  REFERENCES `consultorio`.`consulta` (`id_consulta`)
+#--- Modificación de Tabla - Paciente
+ALTER TABLE `consultorio`.`paciente` 
+ADD INDEX `paciente-domicilio_idx` (`id_domicilio`),
+ADD INDEX `paciente-obsocial_idx` (`id_obsoc`);
+ALTER TABLE `consultorio`.`paciente` 
+ADD CONSTRAINT `paciente-domicilio`
+  FOREIGN KEY (`id_domicilio`)
+  REFERENCES `consultorio`.`domicilio` (`id_domicilio`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION,
+ADD CONSTRAINT `paciente-obsocial`
+  FOREIGN KEY (`id_obsoc`)
+  REFERENCES `consultorio`.`obra_social` (`id_obsoc`)
   ON DELETE NO ACTION
   ON UPDATE NO ACTION;
-    
+
+#--- Modificación de Tabla - Usuario
+ALTER TABLE `consultorio`.`usuario` 
+ADD INDEX `usuario-domicilio_idx` (`id_domicilio`),
+ADD INDEX `usuario-obsocial_idx` (`id_obsoc`);
+ALTER TABLE `consultorio`.`usuario` 
+ADD CONSTRAINT `usuario-domicilio`
+  FOREIGN KEY (`id_domicilio`)
+  REFERENCES `consultorio`.`domicilio` (`id_domicilio`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION,
+ADD CONSTRAINT `usuario-obsocial`
+  FOREIGN KEY (`id_obsoc`)
+  REFERENCES `consultorio`.`obra_social` (`id_obsoc`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
+  
+
+#--- Modificación de Tabla - Profesional
+ALTER TABLE `consultorio`.`profesional` 
+ADD INDEX `profesional-domicilio_idx` (`id_domicilio`);
+ALTER TABLE `consultorio`.`profesional` 
+ADD CONSTRAINT `profesional-domicilio`
+  FOREIGN KEY (`id_domicilio`)
+  REFERENCES `consultorio`.`domicilio` (`id_domicilio`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
