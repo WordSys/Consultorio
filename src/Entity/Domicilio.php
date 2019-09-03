@@ -2,9 +2,9 @@
 
 namespace App\Entity;
 
+use App\Entity\Localidad;
+use App\Entity\Provincia;
 use Doctrine\ORM\Mapping as ORM;
-
-
 /**
  * Domicilio
  *
@@ -74,7 +74,7 @@ class Domicilio
     /**
      * @var Localidad
      *
-     * @ORM\ManyToOne(targetEntity="App\Entity\Localidad")
+     * @ORM\ManyToOne(targetEntity="Localidad")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="id_localidad", referencedColumnName="id_localidad")
      * })
@@ -84,7 +84,7 @@ class Domicilio
     /**
      * @var Provincia
      *
-     * @ORM\ManyToOne(targetEntity="App\Entity\Provincia")
+     * @ORM\ManyToOne(targetEntity="Provincia")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="id_provincia", referencedColumnName="id_provincia")
      * })

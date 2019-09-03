@@ -3,7 +3,6 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
 /**
  * ObraSocial
  *
@@ -38,7 +37,7 @@ class ObraSocial
     /**
      * @var Collection
      *
-     * @ORM\ManyToMany(targetEntity="App\Entity\Profesional", mappedBy="idObsoc")
+     * @ORM\ManyToMany(targetEntity="Profesional", mappedBy="idObsoc")
      */
     private $idProfesional;
 

@@ -2,8 +2,8 @@
 
 namespace App\Entity;
 
+use App\Entity\Domicilio;
 use Doctrine\ORM\Mapping as ORM;
-
 /**
  * Profesional
  *
@@ -52,7 +52,7 @@ class Profesional
     /**
      * @var Domicilio
      *
-     * @ORM\ManyToOne(targetEntity="App\Entity\Domicilio")
+     * @ORM\ManyToOne(targetEntity="Domicilio")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="id_domicilio", referencedColumnName="id_domicilio")
      * })
@@ -62,7 +62,7 @@ class Profesional
     /**
      * @var Collection
      *
-     * @ORM\ManyToMany(targetEntity="App\Entity\ObraSocial", inversedBy="idProfesional")
+     * @ORM\ManyToMany(targetEntity="ObraSocial", inversedBy="idProfesional")
      * @ORM\JoinTable(name="profesional_obsocial",
      *   joinColumns={
      *     @ORM\JoinColumn(name="id_profesional", referencedColumnName="id_profesional")

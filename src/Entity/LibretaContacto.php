@@ -2,8 +2,9 @@
 
 namespace App\Entity;
 
+use App\Entity\Domicilio;
+use App\Entity\Tcontacto;
 use Doctrine\ORM\Mapping as ORM;
-
 /**
  * LibretaContacto
  *
@@ -31,7 +32,7 @@ class LibretaContacto
     /**
      * @var Tcontacto
      *
-     * @ORM\ManyToOne(targetEntity="App\Entity\Tcontacto")
+     * @ORM\ManyToOne(targetEntity="Tcontacto")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="id_tcontacto", referencedColumnName="id_tcontacto")
      * })
@@ -41,7 +42,7 @@ class LibretaContacto
     /**
      * @var Domicilio
      *
-     * @ORM\ManyToOne(targetEntity="App\Entity\Domicilio")
+     * @ORM\ManyToOne(targetEntity="Domicilio")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="id_domicilio", referencedColumnName="id_domicilio")
      * })

@@ -2,8 +2,10 @@
 
 namespace App\Entity;
 
+use App\Entity\Domicilio;
+use App\Entity\ObraSocial;
+use DateTime;
 use Doctrine\ORM\Mapping as ORM;
-
 /**
  * Paciente
  *
@@ -34,7 +36,7 @@ class Paciente
     private $dni;
 
     /**
-     * @var \DateTime
+     * @var DateTime
      *
      * @ORM\Column(name="fnac", type="datetime", nullable=false)
      */
@@ -52,7 +54,7 @@ class Paciente
     /**
      * @var Domicilio
      *
-     * @ORM\ManyToOne(targetEntity="App\Entity\Domicilio")
+     * @ORM\ManyToOne(targetEntity="Domicilio")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="id_domicilio", referencedColumnName="id_domicilio")
      * })
@@ -62,7 +64,7 @@ class Paciente
     /**
      * @var ObraSocial
      *
-     * @ORM\ManyToOne(targetEntity="App\Entity\ObraSocial")
+     * @ORM\ManyToOne(targetEntity="ObraSocial")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="id_obsoc", referencedColumnName="id_obsoc")
      * })
