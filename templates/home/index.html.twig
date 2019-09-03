@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <header>
+      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner" role="listbox">
+          <!-- Slide One - Set the background image for this slide in the line below -->
+          <div class="carousel-item active" style="background-image: url( {{asset('img/CMPfrente.jpg')}} )">
+            <div class="carousel-caption d-none d-md-block">
+
+            </div>
+          </div>
+          <!-- Slide Two - Set the background image for this slide in the line below -->
+          <div class="carousel-item" style="background-image: url( {{asset('img/dentista1.jpg')}} )">
+            <div class="carousel-caption d-none d-md-block">
+
+            </div>
+          </div>
+          <!-- Slide Three - Set the background image for this slide in the line below -->
+          <div class="carousel-item" style="background-image: url( {{asset('img/doctor.jpg')}} )">
+            <div class="carousel-caption d-none d-md-block">
+
+            </div>
+          </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+
+        </a>
+      </div>
+    </header>
+    <hr>
+
+    <!-- Features Section -->
+    <div class="row m-2">
+      <div class="col-lg-6">
+        <h2>Consultorios Médicos Piria</h2>
+        <p>Diag. 4 (Piria) n° 308 esq. Diag. 428 - Villa Elisa</p>
+        <p><strong>Telefono : </strong> 0221 473 3314</p>
+      </div>
+      <div class="col-lg-6">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13096.238883303695!2d-58.0694963!3d-34.8547267!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xf5b49ec92bb51063!2sConsultorios+Piria!5e0!3m2!1ses-419!2sar!4v1557282368055!5m2!1ses-419!2sar" width="650" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+      </div>
+    </div>
+    <!-- /.row -->
+{% endblock %}

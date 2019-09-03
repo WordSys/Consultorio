@@ -1,12 +1,71 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <title>{% block title %}C M Piria!{% endblock %}</title>
+        <!-- Bootstrap core CSS -->
+        <link href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+
+        <!-- Custom styles for this template -->
+        <link href="{{ asset('css/modern-business.css') }}" rel="stylesheet">
         {% block stylesheets %}{% endblock %}
+
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
+
+
     <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+
+          <!-- Menú de navegación -->
+          <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
+            <div class="container">
+              <a class="navbar-brand" href="{{ path('homepage') }}">Consultorios Médicos Piria</a>
+              <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{ path('nosotros') }}">Nosotros</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{ path('cartilla') }}">Profesionales</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{ path('ingresar') }}">Ingresar</a>
+                  </li>
+
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Sistema
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownBlog">
+                      <a class="dropdown-item" href="{{ path('usuarios') }}">Usuarios</a>
+                      <a class="dropdown-item" href="{{ path('pacientes') }}">Pacientes</a>
+                      <a class="dropdown-item" href="{{ path('profesionales') }}">Profesionales</a>
+                      <a class="dropdown-item" href="{{ path('turnos') }}">Turnos</a>
+                      {#<a class="dropdown-item" href="pricing.html">Pricing Table</a>#}
+                    </div>
+                  </li>
+
+                </ul>
+              </div>
+            </div>
+          </nav>
+      {% block body %}{% endblock %}
+
+        <!-- Bootstrap core JavaScript -->
+        <script src="vendor/jquery/jquery.min.js"></script>
+        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+      {% block javascripts %}{% endblock %}
+
     </body>
+    <!-- Footer -->
+    <footer class="py-5 bg-dark">
+      <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; Your Website 2019</p>
+      </div>
+      <!-- /.container -->
+    </footer>
 </html>
