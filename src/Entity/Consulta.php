@@ -29,9 +29,9 @@ class Consulta
     private $idConsulta;
 
     /**
-     * @var \AppBundle\Entity\Paciente
+     * @var Paciente
      *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Paciente")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Paciente")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="id_paciente", referencedColumnName="id_paciente")
      * })
@@ -39,9 +39,9 @@ class Consulta
     private $idPaciente;
 
     /**
-     * @var \AppBundle\Entity\Profesional
+     * @var Profesional
      *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Profesional")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Profesional")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="id_profesional", referencedColumnName="id_profesional")
      * })
@@ -49,9 +49,9 @@ class Consulta
     private $idProfesional;
 
     /**
-     * @var \AppBundle\Entity\TipoConsulta
+     * @var TipoConsulta
      *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\TipoConsulta")
+     * @ORM\ManyToOne(targetEntity="App\Entity\TipoConsulta")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="id_tconsulta", referencedColumnName="id_tconsulta")
      * })
@@ -59,9 +59,9 @@ class Consulta
     private $idTconsulta;
 
     /**
-     * @var \AppBundle\Entity\Usuario
+     * @var Usuario
      *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Usuario")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Usuario")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="id_usuario", referencedColumnName="id_usuario")
      * })

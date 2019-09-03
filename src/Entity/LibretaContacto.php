@@ -29,9 +29,9 @@ class LibretaContacto
     private $idLcontacto;
 
     /**
-     * @var \AppBundle\Entity\Tcontacto
+     * @var Tcontacto
      *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Tcontacto")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Tcontacto")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="id_tcontacto", referencedColumnName="id_tcontacto")
      * })
@@ -39,9 +39,9 @@ class LibretaContacto
     private $idTcontacto;
 
     /**
-     * @var \AppBundle\Entity\Domicilio
+     * @var Domicilio
      *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Domicilio")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Domicilio")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="id_domicilio", referencedColumnName="id_domicilio")
      * })

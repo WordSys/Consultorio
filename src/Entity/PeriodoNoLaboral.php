@@ -36,9 +36,9 @@ class PeriodoNoLaboral
     private $idPnlaboral;
 
     /**
-     * @var \AppBundle\Entity\Profesional
+     * @var Profesional
      *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Profesional")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Profesional")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="id_profesional", referencedColumnName="id_profesional")
      * })

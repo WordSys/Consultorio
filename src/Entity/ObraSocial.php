@@ -36,9 +36,9 @@ class ObraSocial
     private $idObsoc;
 
     /**
-     * @var \Doctrine\Common\Collections\Collection
+     * @var Collection
      *
-     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Profesional", mappedBy="idObsoc")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Profesional", mappedBy="idObsoc")
      */
     private $idProfesional;
 
@@ -47,7 +47,7 @@ class ObraSocial
      */
     public function __construct()
     {
-        $this->idProfesional = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->idProfesional = new ArrayCollection();
     }
 
 }

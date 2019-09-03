@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
+
 /**
  * Domicilio
  *
@@ -71,9 +72,9 @@ class Domicilio
     private $idDomicilio;
 
     /**
-     * @var \AppBundle\Entity\Localidad
+     * @var Localidad
      *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Localidad")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Localidad")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="id_localidad", referencedColumnName="id_localidad")
      * })
@@ -81,9 +82,9 @@ class Domicilio
     private $idLocalidad;
 
     /**
-     * @var \AppBundle\Entity\Provincia
+     * @var Provincia
      *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Provincia")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Provincia")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="id_provincia", referencedColumnName="id_provincia")
      * })

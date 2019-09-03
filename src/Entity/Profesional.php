@@ -50,9 +50,9 @@ class Profesional
     private $idProfesional;
 
     /**
-     * @var \AppBundle\Entity\Domicilio
+     * @var Domicilio
      *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Domicilio")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Domicilio")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="id_domicilio", referencedColumnName="id_domicilio")
      * })
@@ -60,9 +60,9 @@ class Profesional
     private $idDomicilio;
 
     /**
-     * @var \Doctrine\Common\Collections\Collection
+     * @var Collection
      *
-     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\ObraSocial", inversedBy="idProfesional")
+     * @ORM\ManyToMany(targetEntity="App\Entity\ObraSocial", inversedBy="idProfesional")
      * @ORM\JoinTable(name="profesional_obsocial",
      *   joinColumns={
      *     @ORM\JoinColumn(name="id_profesional", referencedColumnName="id_profesional")
@@ -79,7 +79,7 @@ class Profesional
      */
     public function __construct()
     {
-        $this->idObsoc = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->idObsoc = new ArrayCollection();
     }
 
 }

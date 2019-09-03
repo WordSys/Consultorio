@@ -64,9 +64,9 @@ class Usuario
     private $idUsuario;
 
     /**
-     * @var \AppBundle\Entity\Domicilio
+     * @var Domicilio
      *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Domicilio")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Domicilio")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="id_domicilio", referencedColumnName="id_domicilio")
      * })
@@ -74,9 +74,9 @@ class Usuario
     private $idDomicilio;
 
     /**
-     * @var \AppBundle\Entity\ObraSocial
+     * @var ObraSocial
      *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\ObraSocial")
+     * @ORM\ManyToOne(targetEntity="App\Entity\ObraSocial")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="id_obsoc", referencedColumnName="id_obsoc")
      * })
