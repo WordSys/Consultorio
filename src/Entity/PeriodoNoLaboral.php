@@ -2,8 +2,9 @@
 
 namespace App\Entity;
 
+use App\Entity\Profesional;
+use DateTime;
 use Doctrine\ORM\Mapping as ORM;
-
 /**
  * PeriodoNoLaboral
  *
@@ -13,14 +14,14 @@ use Doctrine\ORM\Mapping as ORM;
 class PeriodoNoLaboral
 {
     /**
-     * @var \DateTime
+     * @var DateTime
      *
      * @ORM\Column(name="desde", type="date", nullable=false)
      */
     private $desde;
 
     /**
-     * @var \DateTime
+     * @var DateTime
      *
      * @ORM\Column(name="hasta", type="date", nullable=false)
      */
@@ -38,7 +39,7 @@ class PeriodoNoLaboral
     /**
      * @var Profesional
      *
-     * @ORM\ManyToOne(targetEntity="App\Entity\Profesional")
+     * @ORM\ManyToOne(targetEntity="Profesional")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="id_profesional", referencedColumnName="id_profesional")
      * })

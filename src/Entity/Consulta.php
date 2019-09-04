@@ -2,18 +2,21 @@
 
 namespace App\Entity;
 
+use App\Entity\Paciente;
+use App\Entity\Profesional;
+use App\Entity\TipoConsulta;
+use App\Entity\Usuario;
+use DateTime;
 use Doctrine\ORM\Mapping as ORM;
 
-/**
- * Consulta
- *
+ /*
  * @ORM\Table(name="consulta")
  * @ORM\Entity
  */
 class Consulta
 {
     /**
-     * @var \DateTime
+     * @var DateTime
      *
      * @ORM\Column(name="fecha", type="date", nullable=false)
      */
@@ -31,7 +34,7 @@ class Consulta
     /**
      * @var Paciente
      *
-     * @ORM\ManyToOne(targetEntity="App\Entity\Paciente")
+     * @ORM\ManyToOne(targetEntity="Paciente")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="id_paciente", referencedColumnName="id_paciente")
      * })
@@ -41,7 +44,7 @@ class Consulta
     /**
      * @var Profesional
      *
-     * @ORM\ManyToOne(targetEntity="App\Entity\Profesional")
+     * @ORM\ManyToOne(targetEntity="Profesional")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="id_profesional", referencedColumnName="id_profesional")
      * })
@@ -51,7 +54,7 @@ class Consulta
     /**
      * @var TipoConsulta
      *
-     * @ORM\ManyToOne(targetEntity="App\Entity\TipoConsulta")
+     * @ORM\ManyToOne(targetEntity="TipoConsulta")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="id_tconsulta", referencedColumnName="id_tconsulta")
      * })
@@ -61,7 +64,7 @@ class Consulta
     /**
      * @var Usuario
      *
-     * @ORM\ManyToOne(targetEntity="App\Entity\Usuario")
+     * @ORM\ManyToOne(targetEntity="Usuario")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="id_usuario", referencedColumnName="id_usuario")
      * })

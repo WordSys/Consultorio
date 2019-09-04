@@ -2,7 +2,9 @@
 
 namespace App\Entity;
 
+use DateTime;
 use Doctrine\ORM\Mapping as ORM;
+
 
 /**
  * DiasNoLaborables
@@ -13,7 +15,7 @@ use Doctrine\ORM\Mapping as ORM;
 class DiasNoLaborables
 {
     /**
-     * @var \DateTime
+     * @var DateTime
      *
      * @ORM\Column(name="dia_no_laborable", type="date", nullable=false)
      */
