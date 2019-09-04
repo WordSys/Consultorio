@@ -15,13 +15,7 @@ class DefaultController extends Controller
     {
 
         return $this->render('home/index.html.twig');
-        // replace this example code with whatever you need
-        /*
-        return $this->render('default/index.html.twig', [
-            'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
-        ]);
-        */
-
+        
     }
 
     /**
@@ -31,13 +25,7 @@ class DefaultController extends Controller
     {
 
         return $this->render('home/ingresar.html.twig');
-        // replace this example code with whatever you need
-        /*
-        return $this->render('default/index.html.twig', [
-            'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
-        ]);
-        */
-
+        
     }
 
     /**
@@ -47,13 +35,7 @@ class DefaultController extends Controller
     {
 
         return $this->render('home/nosotros.html.twig');
-        // replace this example code with whatever you need
-        /*
-        return $this->render('default/index.html.twig', [
-            'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
-        ]);
-        */
-
+        
     }
 
     /**
@@ -63,12 +45,6 @@ class DefaultController extends Controller
     {
 
         return $this->render('home/profesionales.html.twig');
-        // replace this example code with whatever you need
-        /*
-        return $this->render('default/index.html.twig', [
-            'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
-        ]);
-        */
-
+        
     }
 }
